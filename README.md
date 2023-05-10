@@ -1,5 +1,7 @@
 # InkCaseMe
 
+
+
 简介:InkCase i5  (拆机图请移步：http://bbs.mydigit.cn/read.php?tid=2006268 )
 
 经过大家的努力，现在已经可以做为独立的电纸书来使用。
@@ -9,6 +11,7 @@
 1. 电纸书应用 ebook  作者：索马里的海贼(QQ:3298302054) , wushy 贡献菜单功能
 2. 图片浏览   jpg 
 
+
 主要刷机资料：
 1. (推荐下载) 图文刷机教程：https://wiztrader.ctfile.com/fs/FfC198007421 （感谢作者：天気雨 QQ:727999552）
 2. (推荐下载) DIY固件：最新二键刷机包 https://wiztrader.ctfile.com/fs/sXq199116072
@@ -16,6 +19,29 @@
 4. (过时) 修正双重启动等已知问题 20170410 https://wiztrader.ctfile.com/fs/PAs197383276
 5. (过时）Windows带usbtty功能  20170406 https://wiztrader.ctfile.com/fs/hrS196017989
 6. (过时）原版固件：https://wiztrader.ctfile.com/fs/dCd197387966
+
+
+## 刷回原版固件
+
+需要在刷自制固件之前，备份各个分区的img文件
+
+我在Image文件中放置了我自己设备的img文件，不知道不同设备的能否通用，建议最好还是先备份
+
+打开Software文件夹中的`AndroidTool_Release_2.58`,依照前方的教程进入刷机模式，点击`设备分区表`，此时右方会列出当前分区，请截图保存。
+![Alt text](Picture/Snipaste.png)
+>此图片仅供参考，实际情况以自己的为准。
+
+打开Software文件夹中的`AndroidTool_Release_v2.35`,在高级功能中点击`导出镜像`，按照图片中分区表中的`LBA-起始扇区,Size-扇区数`导出各个分区的img文件并正确命名。
+>建议最后一个user分区导出时，Size-扇区数设置为0x00006000，这样导出的img文件应会正常包含user中的文件。
+
+将img文件放置于Image文件夹中，在androidtool中右键点击导入配置，选择`config`文件，点击`低格`，完成后，点击`执行`等待刷机完成即可。      
+此时最后一个user分区效验会出现问题，忽略此错误，在高级功能中点击`重启设备`，重启后即可正常使用。    
+>此错误log中提示user分区只有10816K     
+`ERROR:DownloadImage-->memcmp failed,Checked(10816K)`
+
+
+
+
 
 更新历史:
 1. 2017.04.06 自制固件出炉
